@@ -1,0 +1,154 @@
+\documentclass[final]{article}
+
+% if you need to pass options to natbib, use, e.g.:
+% \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading nips_2016
+%
+% to avoid loading the natbib package, add option nonatbib:
+% \usepackage[nonatbib]{nips_2016}
+
+\usepackage{nips_2016}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+% \usepackage[final]{nips_2016}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+%\usepackage{hyperref}       % hyperlinks
+%\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{url}
+\usepackage{array}
+\usepackage{tabu}
+
+\title{Chapter 1}
+
+% The \author macro works with any number of authors. There are two
+% commands used to separate the names and addresses of multiple
+% authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to
+% break the lines. Using \AND forces a line break at that point. So,
+% if LaTeX puts 3 of 4 authors names on the first line, and the last
+% on the second line, try using \AND instead of \And before the third
+% author name.
+
+\author{
+  Kruthika ~Hassan \\% \thanks{Use footnote for providing further
+    %information about author (webpage, alternative
+    % address)---\emph{not} for acknowledging funding agencies.} \\
+  Department of Applied Mathematics\\
+  University of Washington\\
+  Seattle, WA 98195 \\
+  \texttt{kruthika@uw.edu} \\
+  %% examples of more authors
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+\begin{document}
+% \nipsfinalcopy is no longer used
+
+\maketitle
+
+\begin{abstract}
+  In this chapter, we learn about the data to be analyzed. The short-term and long-term goals of the project, with objectives is also enumerated. Further steps in the direction of short-term goals is mentioned.
+\end{abstract}
+
+\section{Data Description}
+The dataset is provided by the Scripps Institution of Oceanography \url{http://sabiod.univ-tln.fr/DCLDE/challenge.html} as part of the 8th Detection, Classification, Localization and Density Estimation (DCLDE) workshop. Data consists of acoustic recordings from multiple deployments of high frequency acoustic recording packages deployed in Western North Atlantic and Gulf of Mexico. Separate development data provided for Mysticetes and Odontocetes species \ref{}. Acoustic data is provided as wav files. Mysticete data  is decimated to 1kHz bandwidth (2 kHz sample rate), Odontocete data is decimated to 100kHz bandwidth (200 kHz sample rate). Low frequency and high frequency datasets respectively. 
+
+\subsection{High Frequency Dataset}
+Consists of marked encounters with echolocation clicks of species commonly found along the US Atlantic coast and Gulf of Mexico. Analysts have examined the data for echolocation clicks and approximated the start and end times of acoustic encounters. A period that was separated from another by five minutes or more is marked as a separate encounter. Whistle activity is not considered. 
+
+Annotations are also provided in the form of a csv file. The species encountered with abbreviation is listed below\\
+\begin{enumerate}
+\item \textit{Mesoplodon europaeus} (Me) - Gervais beaked whale
+\item \textit{Ziphius cavirostris} (Zc) - Cuvier's beaked whale
+\item \textit{Mesoplodon bidens} (Mb) - Sowerby's beaked whale
+\item \textit{Lagenorhynchus acutus} (La) - Atlantic white-sided dolphin
+\item \textit{Grampus griseus} (Gg) - Risso's Dolphin
+\item \textit{Globicephala macrorhynchus} (Gma) - Short-finned pilot whale
+\item \textit{Stenella sp} (Ssp) - Stenellid Dolphin
+\item UDA - Delphinid Type A
+\item UDB - Delphinid Type B
+\item UD - unidentified Deelphinid
+
+\end{enumerate}
+
+
+\subsection{Low Frequency Dataset}
+Consists of calls from two mysticete species - North Atlantic Blue Whale tonal calls and North Atlantic Right Whale up-call. Analysts have annotated the data using long-term spectral averages and also manual scanning of data for individual calls.
+
+\begin{enumerate}
+\item \textit{Balaenoptera musculus} (Bm) - Blue Whale
+\item \textit{Eubalaena glacialis} (Eg) - North Atlantic Right Whale
+\end{enumerate}
+
+\section{Goals and Objectives}
+A tentative sketch of the agenda, with steps to achieve them. 
+
+\subsection{Short-term Goals and Objectives}
+The goal is to identify acoustic encounters by species during times when animals were echolocating, for the high frequency dataset, and to identify specific blue whale tonal calls, right whale up-calls for the low frequency dataset. The objectives in achieving so are enumerated below -
+\begin{itemize}
+\item[1] Signal Preprocessing.
+\item[2] Exploratory Data Analysis.
+\begin{itemize} 
+\item Use dimensionality reduction techniques like PCA or Kernel PCA, and clustering methods to explore the data. 
+\end{itemize}
+\item[3] Spectrogram generation and analysis. 
+\item[4] Classification using supervised learning techniques such as LDA/SVM/Random forests/Ensemble methods.
+\item[5] Convolutional neural networks to detect patterns in spectrogram.
+\item[6] Comparative analysis of different algorithms.
+\end{itemize}
+
+\subsection{Long-term Goals and Objectives}
+\begin{itemize}
+\item To classify using hybrid learning algorithm using Radial Basis Function (RBF) networks \citep{haykin2009neural}. 
+\begin{itemize}
+\item Build a three layer network. Input layer made of source nodes. Second layer which is the hidden layer, applying a nonlinear transformation from input space to feature space. This is trained in unsupervised manner. Third layer is linear, which is trained in supervised manner.
+\end{itemize}
+\item Build a deep learning architecture that can successfully extract features from acoustic data explored in this project, and also extend the application to urban sound dataset \url{https://serv.cusp.nyu.edu/projects/urbansounddataset/} \citep{salamon2015unsupervised}.
+\end{itemize}
+
+\section{Further Steps}
+\begin{itemize}
+\item Signal preprocessing of the low frequency dataset. 
+\item An exploratory data analysis using PCA/Kernel PCA. 
+\item Apply K-means clustering to find distinguishable patterns.
+\end{itemize}
+
+\section*{Note on Odontocetes and Mysticetes}
+\textbf{Odontocetes:} They are pack animals that hunt cooperatively. Odontocetes use high frequency vocalizations for echolocation and bio-sonar. Due to their small size, odontocetes can be easily held in captivity and hence have been extensively studied. \\
+\textit{Examples:} Orca (killer whale), Dolphins, Sperm whale. 
+
+\textbf{Mysticetes:} They are grazing animals, which feed on krill, plankton, and small fishes. Mysticetes use low frequency sound to communicate and navigate over long distances. They are too large to be held in captivity. Whatever is known is from wild, open ocean interactions. \\
+\textit{Examples:} Minke whale, Blue whale, Right whale, Bowhead whale.
+
+
+\bibliography{references}
+\bibliographystyle{IEEEtran}
+
+
+\end{document}
