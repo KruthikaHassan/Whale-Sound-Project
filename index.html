@@ -3,20 +3,33 @@
     <head>
         <meta charset="utf-8">
         <title> Whale Sound Project </title>
+        <link rel="stylesheet" href="style.css">
+        <script src="project.js"></script>
     </head>
 
     <body>
-        
-            <h1> Whale Sound Project </h1>
-            <hr>
-            <nav>
-                <ul id="about-tabs">
-                    <li class="tab Background"> Background</li>
-                    <li class="tab Low Frequency Dataset"> Low Frequency Dataset </li>
-                    <li class="tab High Frequency Dataset"> High Frequency Dataset</li>
-                </ul>
-            </nav>
-        
+        <!-- Tab links -->
+        <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+        </div>
+      
+      <!-- Tab content -->
+      <div id="London" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+      </div>
+      
+      <div id="Paris" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p> 
+      </div>
+      
+      <div id="Tokyo" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>  
         
     </body>
 </html>
